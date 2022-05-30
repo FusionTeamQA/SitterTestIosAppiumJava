@@ -10,10 +10,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
 
+
 public class BaseIOSTest {
 
     Random random = new Random();
     int n = random.nextInt(1000) +3;
+
+    public static final String login_family = "qwertyu@test.test";
+    public static final String pass_family = "qweqweqwe";
+//    public final String newFamily = "AutoTestfamily" +n +"@example.com";
+//    public final String newSitter = "AutoTestSitter" +n +"@example.com";
+    public static final String pass_signup = "qweqweqwe";
+    public static final String login_sitter = "sitter2";
+    public static final String pass_sitter = "sitter2";
+
 
     public static IOSDriver DesiredCapabilities () throws MalformedURLException {
         //Auto-generated method stub
@@ -32,3 +42,8 @@ public class BaseIOSTest {
 
     }
 }
+
+
+//    String leademail = driver.findElement(By.id("lead-email")).getText();
+//        Assert.assertTrue(leademail.contains("vladislavqatest@gmail.com")); //проверка почты - 3
+//                System.out.println("Соответствует = vladislavqatest@gmail.com");
