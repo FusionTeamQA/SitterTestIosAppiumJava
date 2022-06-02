@@ -33,6 +33,7 @@ public class BaseIOSTest {
         //IOS_XCUI_Test Apple
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
         capabilities.setCapability(IOSMobileCapabilityType.LAUNCH_TIMEOUT, 500000);
+        capabilities.setCapability(MobileCapabilityType.LOCALE, "EN");
         capabilities.setCapability("commandTimeouts", "12000"); //.app
         capabilities.setCapability(MobileCapabilityType.APP, "/Users/fusion_tech/Library/Developer/Xcode/DerivedData/SitterTree-glyurucqttntnhdaksktqqyvqvnm/Build/Products/Debug-iphonesimulator/SitterTree.app");
 

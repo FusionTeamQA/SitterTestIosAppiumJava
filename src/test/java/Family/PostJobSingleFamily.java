@@ -22,6 +22,7 @@ public class PostJobSingleFamily {
                 try {
                         Thread.sleep(3000);
                         driver.findElementByAccessibilityId("Allow").click();//Alert Allow
+                        Thread.sleep(1000);
                         driver.findElementByXPath("(//XCUIElementTypeOther[@name='Email: Password:  Forgot Username or Password? Login'])[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther").click();
                         driver.findElementByXPath("(//XCUIElementTypeOther[@name='Email: Password:  Forgot Username or Password? Login'])[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther").click();
                         driver.findElementByXPath("(//XCUIElementTypeOther[@name='Email: Password:  Forgot Username or Password? Login'])[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther").click();
@@ -31,7 +32,7 @@ public class PostJobSingleFamily {
                         Thread.sleep(1500);
                         driver.findElementByXPath("//XCUIElementTypeOther[@name='Email:']/XCUIElementTypeOther/XCUIElementTypeTextField").sendKeys(login_family);
                         Thread.sleep(2500);
-                        driver.findElementByXPath("//XCUIElementTypeOther[@name='Password:']/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField").sendKeys(pass_family);
+                        driver.findElementByXPath("//XCUIElementTypeOther[@name='Password:']/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField").sendKeys("qweqweqwe");
                         Thread.sleep(2500);
                         driver.findElementByXPath("//XCUIElementTypeOther[@name='Login']").click();
                         Thread.sleep(5000);
@@ -49,14 +50,17 @@ public class PostJobSingleFamily {
                         driver.findElementByAccessibilityId("Start Date Select Date").click();
                         Thread.sleep(2000);
                         LocalDate date = LocalDate.now(); // Gets the current date
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd");
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d");
                         System.out.println("today" + date.format(formatter));
-                        Thread.sleep(1500);
-                        driver.findElementByXPath("(//XCUIElementTypeOther[@name='May 2022 Sun Mon Tue Wed Thu Fri Sat 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31'])[2]")
+                        Thread.sleep(5500);
+                        driver.findElementByAccessibilityId("1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30")
                                 .sendKeys(date.format(formatter));
                         Thread.sleep(2500);
                         driver.findElementByAccessibilityId("Start Time Select Time").click();
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
+                        MobileElement time = (MobileElement) driver.findElementByXPath("//XCUIElementTypePicker");
+                        time.sendKeys("11:15");
+                        Thread.sleep(2000);
                         driver.findElementByAccessibilityId("Confirm").click();
                         Thread.sleep(1000);
                         driver.findElementByXPath("//XCUIElementTypeOther[@name='Notes (visible to all sitters)']/XCUIElementTypeOther/XCUIElementTypeTextView").sendKeys("AutoTest Notes");
@@ -72,20 +76,17 @@ public class PostJobSingleFamily {
                         Thread.sleep(1000);
                         MobileElement GoPayment = (MobileElement) driver.findElementByXPath("(//XCUIElementTypeOther[@name='Go to Payment'])[2]");
                         GoPayment.click();
-                        String BannerSitterPass = driver.findElementByXPath("//XCUIElementTypeStaticText[@name='You saved $20 with Sitter Pass']").getText();
-                        assertTrue(BannerSitterPass.contains("You saved $20 with Sitter Pass"));//проверка отображения баннера
                         Thread.sleep(1000);
                         MobileElement CompletePayment = (MobileElement) driver.findElementByXPath("(//XCUIElementTypeOther[@name='Complete Payment'])[6]");
                         CompletePayment.click();
                         Thread.sleep(1000);
                         String RequiredSafety = driver.findElementByXPath("//XCUIElementTypeOther[@name='Required Safety Protocols']").getText();
                         assertTrue(RequiredSafety.contains("Required Safety Protocols"));//проверка отображения протокола
-                        Thread.sleep(1000);
-                        driver.findElementByXPath("((//XCUIElementTypeOther[@name='Agree'])[1]").click();
+                        Thread.sleep(2000);
+                        driver.findElementByXPath("(//XCUIElementTypeOther[@name='Agree'])[2]").click();
                         Thread.sleep(5000);
                         String HomePage = driver.findElementByAccessibilityId("Upcoming").getText();
                         System.out.println(HomePage);
-//                        assertTrue(RequiredSafety.contains("Required Safety Protocols"));//проверка отображения протокола.
                         driver.quit();
                 } catch (Exception exception) {
                         {
