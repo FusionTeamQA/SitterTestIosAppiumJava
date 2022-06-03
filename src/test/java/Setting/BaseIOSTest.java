@@ -21,8 +21,8 @@ public class BaseIOSTest {
 //    public final String newFamily = "AutoTestfamily" +n +"@example.com";
 //    public final String newSitter = "AutoTestSitter" +n +"@example.com";
     public static final String pass_signup = "qweqweqwe";
-    public static final String login_sitter = "sitter2";
-    public static final String pass_sitter = "sitter2";
+    public static final String login_sitter = "hjksd@example.com";
+    public static final String pass_sitter = "qweqweqwe";
 
 
     public static IOSDriver DesiredCapabilities () throws MalformedURLException {
